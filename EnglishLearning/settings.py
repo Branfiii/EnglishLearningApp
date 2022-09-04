@@ -117,13 +117,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-    'C:/Users/Branfi/PycharmProjects/EnglishLearning/static/',
-]
+STATICFILES_DIRS = [os.path.join(BASE_DIR,'EnglishLearning/static')]
 
-# STATIC_ROOT = os.path.join(BASE_DIR,'static/css/bootstrap.css')
-STATIC_ROOT = "C:/Users/Branfi/PycharmProjects/www/EnglishLearning/static/"
+STATIC_ROOT = os.path.join(BASE_DIR,'/static')
 
 
 # Default primary key field type
