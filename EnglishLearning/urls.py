@@ -42,4 +42,4 @@ urlpatterns = [
                       template_name='password_reset_complete.html'), name='password_reset_complete'),
                   path("password_reset.html", views.password_reset, name="password_reset"),
 
-              ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
