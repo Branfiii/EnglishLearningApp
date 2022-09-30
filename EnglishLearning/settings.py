@@ -118,8 +118,8 @@ USE_TZ = True
 MEDIA_URL='/dj_app/'
 MEDIA_ROOT=os.path.join(BASE_DIR, 'static/dj_app')
 STATIC_URL = 'static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'EnglishLearning/static')]
-STATIC_ROOT = 'C:/Users/Branfi/PycharmProjects/EnglishLearning/static/dj_app'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'EnglishLearning')]
+STATIC_ROOT = 'C:/Users/Branfi/PycharmProjects/EnglishLearning/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
