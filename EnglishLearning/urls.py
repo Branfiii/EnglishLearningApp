@@ -43,3 +43,4 @@ urlpatterns = [
                   path("password_reset.html", views.password_reset, name="password_reset"),
 
               ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
