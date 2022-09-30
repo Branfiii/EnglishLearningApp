@@ -14,27 +14,32 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.template.defaulttags import url
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
-from django.views.static import serve
-
 from English import views
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf import settings
 from django.conf.urls.static import static
+
+
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    path("", views.index, name="index"),
-    path("index.html", views.index, name="index"),
-    path("signup.html", views.register_request, name="register"),
-    path("login.html", views.login_request, name="login"),
-    path("logout.html", views.logout_request, name= "logout"),
-    path("quiz.html",views.quiz,name="quiz"),
-    path("start.html",views.start,name="start"),
-    path("homeworks.html",views.homeworks,name="homeworks"),
-    path("contact.html",views.contact,name="contact"),
-    path('accounts/', include('django.contrib.auth.urls')),
+                  path("admin/", admin.site.urls),
+                  path("", views.index, name="index"),
+                  path("index.html", views.index, name="index"),
+                  path("signup.html", views.register_request, name="register"),
+                  path("login.html", views.login_request, name="login"),
+                  path("logout.html", views.logout_request, name="logout"),
+                  path("quiz.html", views.quiz, name="quiz"),
+                  path("start.html", views.start, name="start"),
+                  path("homeworks.html", views.homeworks, name="homeworks"),
+                  path("contact.html", views.contact, name="contact"),
+                  path('accounts/', include('django.contrib.auth.urls')),
+                  path('password_reset_done.html',
+                       auth_views.PasswordResetDoneView.as_view(template_name='password_reset_done.html'),
+                       name='password_reset_done'),
+                  path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(
+                      template_name="password_reset_confirm.html"), name='password_reset_confirm'),
+                  path('password_reset_complete.html', auth_views.PasswordResetCompleteView.as_view(
+                      template_name='password_reset_complete.html'), name='password_reset_complete'),
+                  path("password_reset.html", views.password_reset, name="password_reset"),
 
-]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-
+              ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
